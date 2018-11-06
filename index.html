@@ -100,22 +100,24 @@
                         <h3>Mohit Patil</h3>
                     </div>
                     <a href="#" class="list-group-item">
-                        <i class="fa fa-comment-o"></i> Dashboard
+                        <i class="fa fa-plus"></i> Dashboard
                     </a>
                     <a href="#" class="list-group-item">
-                        <i class="fa fa-search"></i> Onboard Movie
+                        <i class="fa fa-plus"></i> Onboard Movie
                     </a>
                     <a href="#" class="list-group-item">
-                        <i class="fa fa-search"></i> Onboard Show
+                        <i class="fa fa-plus"></i> Onboard Show
                     </a>
                 </div>
             </div>
-            <div class="col-sm-8 col-md-9" style="background: #fff; margin-top: 15px;">
-                <div ui-view></div>
+            <div class="col-sm-8 col-md-9">
+                <div class="container-fluid" style="background: #fff; margin-top: 15px;" ui-view></div>
             </div>
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.20/angular-ui-router.js"></script>
     <script src="./app/app.module.js"></script>
@@ -123,5 +125,6 @@
     <script src="./app/app.service.js"></script>
     <script src="./app/app.controller.js"></script>
     <script src="./app/components/movie-list/movie-list.controller.js"></script>
+    <script src="./app/components/edit-movie/edit-movie.controller.js"></script>
 </body>
 </html>

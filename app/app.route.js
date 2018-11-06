@@ -12,6 +12,13 @@
             templateUrl: './app/components/movie-list/movie-list.template.html',
             controller: 'MovieListController',
             controllerAs: 'MovieList'
+        }).
+        state('editMovie', {
+            url: '/editMovie/:id',
+            templateUrl: './app/components/edit-movie/edit-movie.template.html',
+            params: {id: null},
+            controller: 'EditMovieController',
+            controllerAs: 'EditMovie'
         });
 
         $urlRouterProvider.otherwise('/movieList');
