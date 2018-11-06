@@ -1,0 +1,127 @@
+<html lang="en" ng-app="MBoarding">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+    <style>
+        body {
+            background: #f1f3fa;
+        }
+        nav {
+            margin-bottom: 0px!important;
+        }
+        #sideMenu {
+            background: #fff;
+            box-shadow: 5px 5px 5px #888888;
+        }
+        #sideMenu a {
+            height: 60px;
+            text-align: left;
+            vertical-align: middle;
+            padding: 20px 50px;
+            font-size: 17px;
+            font-weight: 700;
+        }
+        #sidenavProfilePic {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            margin: auto;
+            margin-top: 15px;
+            display: inline-block;
+        }
+        .movieList {
+            display: flex;
+            border-radius: 5px;
+            border-width: 3px;
+            box-shadow: 5px 5px 5px #888888;
+        }
+        .movieList img {
+            max-width: 200px;
+            height: 200px;
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+        .movieList div {
+            flex-grow: 1;
+            flex-shrink: 1;
+            padding: 0px 20px 20px 20px;
+        }
+        .movieList div h3 span {
+            font-size: 14px;
+            font-weight: 100;
+            color: #aaa;
+        }
+        .complete {
+            border-color: #8bc34a;
+        }
+        .inComplete {
+            border-color: #f19494;
+        }
+        .customIcon {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body ng-controller="MBoardingController">
+
+
+    <nav class="navbar navbar-inverse" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">MBoarding</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="javascript:void(0)">Welcome !!!</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4 col-md-3 sidebar">
+                <div id="sideMenu" class="list-group">
+                    <div style="height: 300px; border-bottom: 2px solid #000; text-align: center;">
+                        <div id="sidenavProfilePic"></div>
+                        <h3>Mohit Patil</h3>
+                    </div>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-comment-o"></i> Dashboard
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-search"></i> Onboard Movie
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-search"></i> Onboard Show
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-9" style="background: #fff; margin-top: 15px;">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.20/angular-ui-router.js"></script>
+    <script src="./app/app.module.js"></script>
+    <script src="./app/app.route.js"></script>
+    <script src="./app/app.service.js"></script>
+    <script src="./app/app.controller.js"></script>
+    <script src="./app/components/movie-list/movie-list.controller.js"></script>
+</body>
+</html>

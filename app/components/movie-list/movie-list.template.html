@@ -1,0 +1,24 @@
+customIcon<div class="row">
+    <div class="col-sm-12" style="padding: 20px 15px;">
+        <button class="btn btn-success pull-right">New Movie</button>
+    </div>
+    <div class="col-sm-12">
+        <ul class="list-group">
+            <li class="list-group-item movieList"
+            ng-repeat="i in [1,2,3,4,5,6]"
+            style="margin-bottom: 10px;">
+            <!-- ng-class="i % 2 == 0 ? 'complete' : 'inComplete'" -->
+                <img src="./resources/avengers.jpg" alt="">
+                <div>
+                    <h3>
+                        Avengers
+                        <span>(22/10/2015)</span>
+                        <i class="far fa-trash-alt pull-right customIcon" style="color: #f19494;"></i>
+                        <i class="far fa-edit pull-right customIcon" style="color: #8bc34a;"></i>
+                        <!-- <i class="far fa-plus-square pull-right" style="color: #8bc34a; cursor: pointer;"></i> -->
+                    </h3>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
