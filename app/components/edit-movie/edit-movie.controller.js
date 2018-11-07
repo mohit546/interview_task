@@ -51,6 +51,18 @@
                 show: true
             });
         };
+
+        vm.addEntry = function(record, arr){
+            if(record){
+                arr.push(record);
+            }
+            return null;
+        }
+
+        vm.removeEntry = function(index, arr){
+            arr.splice(index, 1);
+            return arr;
+        }
     }
 
 })();

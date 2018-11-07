@@ -25,23 +25,78 @@
                 </div>
                 <div class="col-sm-6 spacing">
                     <label>Director</label>
-                    <input type="text" class="form-control" ng-model="release.directorName">
+                    <span class="badge" ng-repeat="director in release.directorName track by $index" style="margin-right: 5px;" ng-if="release.directorName.length">
+                        {{director}}
+                        <i class="far fa-times-circle" style="cursor: pointer;" ng-click="EditMovie.removeEntry($index, release.directorName)"></i>
+                    </span>
+                    <form ng-submit="directorName = EditMovie.addEntry(directorName, release.directorName)" ng-init="directorName = null;">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Director Name" ng-model="directorName">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Add</button>
+                            </span>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-sm-6 spacing">
                     <label>Producer</label>
-                    <input type="text" class="form-control" ng-model="release.producerName">
+                    <span class="badge" ng-repeat="producer in release.producerName track by $index" style="margin-right: 5px;" ng-if="release.producerName.length">
+                        {{producer}}
+                        <i class="far fa-times-circle" style="cursor: pointer;" ng-click="EditMovie.removeEntry($index, release.producerName)"></i>
+                    </span>
+                    <form ng-submit="producerName = EditMovie.addEntry(producerName, release.producerName)" ng-init="producerName = null;">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Producer Name" ng-model="producerName">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Add</button>
+                            </span>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-sm-6 spacing">
                     <label>Actor</label>
-                    <input type="text" class="form-control" ng-model="release.actorName">
+                    <span class="badge" ng-repeat="actor in release.actorName track by $index" style="margin-right: 5px;" ng-if="release.actorName.length">
+                        {{actor}}
+                        <i class="far fa-times-circle" style="cursor: pointer;" ng-click="EditMovie.removeEntry($index, release.actorName)"></i>
+                    </span>
+                    <form ng-submit="actorName = EditMovie.addEntry(actorName, release.actorName)" ng-init="actorName = null;">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Actor Name" ng-model="actorName">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Add</button>
+                            </span>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-sm-6 spacing">
                     <label>Actress</label>
-                    <input type="text" class="form-control" ng-model="release.actressName">
+                    <span class="badge" ng-repeat="actress in release.actressName track by $index" style="margin-right: 5px;" ng-if="release.actressName.length">
+                        {{actress}}
+                        <i class="far fa-times-circle" style="cursor: pointer;" ng-click="EditMovie.removeEntry($index, release.actressName)"></i>
+                    </span>
+                    <form ng-submit="actressName = EditMovie.addEntry(actressName, release.actressName)" ng-init="actressName = null;">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Actress Name" ng-model="actressName">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Add</button>
+                            </span>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-sm-6 spacing">
                     <label>Distributors</label>
-                    <input type="text" class="form-control" ng-model="release.distributors">
+                    <span class="badge" ng-repeat="distributor in release.distributors track by $index" style="margin-right: 5px;" ng-if="release.distributors.length">
+                        {{distributor}}
+                        <i class="far fa-times-circle" style="cursor: pointer;" ng-click="EditMovie.removeEntry($index, release.distributors)"></i>
+                    </span>
+                    <form ng-submit="distributors = EditMovie.addEntry(distributors, release.distributors)" ng-init="distributors = null;">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Distributor Name" ng-model="distributors">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Add</button>
+                            </span>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-sm-6 spacing">
                     <label>Age Rating</label>
