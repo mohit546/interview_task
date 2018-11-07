@@ -52,12 +52,12 @@
                 release: [
                     {
                         country: 'USA',
-                        date: now.getTime(),
+                        date: now,
                         directorName: ['Dir Ravi Shankar', 'Dir Aditya Chopra'],
                         producerName: ['Pro Ravi Shankar', 'Pro Aditya Chopra'],
                         actorName: ['Actor Ravi Shankar', 'Actor Aditya Chopra'],
                         actressName: ['Bhumika', 'Priyanka'],
-                        distributor: ['20th century fox', 'Warner Bros.', 'Lionsgate'],
+                        distributors: ['20th century fox', 'Warner Bros.', 'Lionsgate'],
                         ageRating: {
                             id: 1,
                             name: 'G – General Audiences',
@@ -76,12 +76,12 @@
                         poster: './resources/avengers.jpg'
                     },{
                         country: 'IN',
-                        date: new Date(now.getFullYear(), now.getMonth(), now.getDate()+1).getTime(),
+                        date: new Date(now.getFullYear(), now.getMonth(), now.getDate()+1),
                         directorName: ['Dir Ravi Shankar', 'Dir Aditya Chopra'],
                         producerName: ['Pro Ravi Shankar', 'Pro Aditya Chopra'],
                         actorName: ['Actor Ravi Shankar', 'Actor Aditya Chopra'],
                         actressName: ['Bhumika', 'Priyanka'],
-                        distributor: ['20th century fox', 'Warner Bros.', 'Lionsgate'],
+                        distributors: ['20th century fox', 'Warner Bros.', 'Lionsgate'],
                         ageRating: {
                             id: 2,
                             name: 'PG – Parental Guidance Suggested',
@@ -104,23 +104,34 @@
         ];
 
         var MBoardingData = {
+            getRequiredData: getRequiredData,
             getMoviesList: getMoviesList,
-            getMovie: getMovie
+            getMovie: getMovie,
+            addNewMovie: addNewMovie,
+            deleteMovie: deleteMovie
         };
         return MBoardingData;
 
+        function getRequiredData(){
+            var deferred = $q.defer();
+            deferred.resolve({
+                releaseType: releaseType,
+                ageRatings: ageRatings
+            });
+            return deferred.promise;
+        }
+
         function uniqueIdGenerator(name){
-            return Math.floor(10000 + Math.random() * 90000) + name;
+            return Math.floor(10000 + Math.random() * 90000) + '-' + name;
         };
 
         function findRecord(id){
             for(var i = 0, l = movieList.length; i < l; i++){
                 if(movieList[i].id === id){
-                    return movieList[i]
-                }else{
-                    return null;
+                    return i;
                 }
             }
+            return null;
         };
 
         function getMoviesList() {
@@ -136,7 +147,34 @@
         function getMovie(id) {
             var deferred = $q.defer();
             if(movieList.length){
-                deferred.resolve(findRecord(id));
+                deferred.resolve(movieList[findRecord(id)]);
+            }else{
+                deferred.reject([]);
+            }
+            return deferred.promise;
+        }
+
+        function addNewMovie(movie) {
+            movie.id = uniqueIdGenerator(movie.name);
+            movieList.push(movie)
+            var deferred = $q.defer();
+            if(movieList.length){
+                deferred.resolve(movieList);
+            }else{
+                deferred.reject([]);
+            }
+            return deferred.promise;
+        }
+
+        function deleteMovie(id) {
+            var index = findRecord(id);
+            console.log(index);
+            if(index != null){
+                movieList.splice(index, 1);
+            }
+            var deferred = $q.defer();
+            if(movieList.length){
+                deferred.resolve(movieList);
             }else{
                 deferred.reject([]);
             }

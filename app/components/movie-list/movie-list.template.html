@@ -7,17 +7,20 @@
         <ul class="list-group" ng-if="MovieList.moviesList.length">
             <li class="list-group-item movieList"
             ng-repeat="movie in MovieList.moviesList"
-            style="margin-bottom: 10px;">
-                <!-- ng-class="i % 2 == 0 ? 'complete' : 'inComplete'" -->
+            style="margin-bottom: 10px;"
+            ng-class="movie.release.length ? 'complete' : 'inComplete'">
                 <img ng-src="{{movie.poster}}" alt="">
                 <div>
                     <h3>
                         {{movie.name}}
-                        <i class="far fa-trash-alt pull-right customIcon" style="color: #f19494;"></i>
-                        <i class="far fa-edit pull-right customIcon" style="color: #8bc34a;" ng-click="MovieList.editMovie(i)"></i>
-                        <!-- <i class="far fa-plus-square pull-right" style="color: #8bc34a; cursor: pointer;"></i> -->
+                        <i class="far fa-trash-alt pull-right customIcon" style="color: #f19494;" ng-click="MovieList.deleteMovie(movie)"></i>
+                        <i class="far fa-edit pull-right customIcon" style="color: #8bc34a;" ng-click="MovieList.editMovie(movie)"></i>
                     </h3>
-                    <span class="badge" ng-repeat="release in movie.release" style="margin-right: 5px;">
+                    <label>Release</label>
+                    <span style="margin-left: 5px;" ng-if="!movie.release.length">
+                        Not Release yet
+                    </span>
+                    <span class="badge" ng-repeat="release in movie.release" style="margin-right: 5px;" ng-if="movie.release.length">
                         <span>{{release.country}}</span>
                         <span>({{release.date | date: 'dd/MMM/yyyy'}})</span>
                     </span>
@@ -37,8 +40,9 @@
             <form ng-submit="MovieList.addNewMovie()">
                 <div class="modal-body">
                     <label>Movie Name</label>
-                    <input type="text" name="movieName" class="form-control" ng-model="MovieList.movieName">
-                    <!-- <button type="submit" class="btn btn-info">Add</button> -->
+                    <input type="text" name="movieName" class="form-control" ng-model="MovieList.movie.name">
+                    <label>Poster Url</label>
+                    <input type="text" name="movieName" class="form-control" ng-model="MovieList.movie.poster">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -1,8 +1,128 @@
 <div style="padding: 15px;">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 spacing">
+            <button class="btn btn-success" ng-click="EditMovie.openAddNewRelease()">Add Release</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 spacing">
             <label>Movie Name</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" ng-model="EditMovie.movie.name">
+        </div>
+        <div class="col-sm-12 spacing">
+            <label>Poster Url</label>
+            <input type="text" class="form-control" ng-model="EditMovie.movie.poster">
+        </div>
+        <div class="col-sm-12">
+            <div class="row" ng-repeat="release in EditMovie.movie.release" style="border-top: 2px solid #ccc; padding-top: 15px;">
+                <div class="col-sm-6 spacing">
+                    <label>Country</label>
+                    <input type="text" class="form-control" ng-model="release.country">
+                </div>
+                <div class="col-sm-6 spacing">
+                    <label>Date</label>
+                    <input type="date" class="form-control" ng-model="release.date">
+                </div>
+                <div class="col-sm-6 spacing">
+                    <label>Director</label>
+                    <input type="text" class="form-control" ng-model="release.directorName">
+                </div>
+                <div class="col-sm-6 spacing">
+                    <label>Producer</label>
+                    <input type="text" class="form-control" ng-model="release.producerName">
+                </div>
+                <div class="col-sm-6 spacing">
+                    <label>Actor</label>
+                    <input type="text" class="form-control" ng-model="release.actorName">
+                </div>
+                <div class="col-sm-6 spacing">
+                    <label>Actress</label>
+                    <input type="text" class="form-control" ng-model="release.actressName">
+                </div>
+                <div class="col-sm-6 spacing">
+                    <label>Distributors</label>
+                    <input type="text" class="form-control" ng-model="release.distributors">
+                </div>
+                <div class="col-sm-6 spacing">
+                    <label>Age Rating</label>
+                    <select class="form-control" ng-options="rating as rating.name for rating in EditMovie.requiredData.ageRatings" ng-model="release.ageRatings"></select>
+                </div>
+                <div class="col-sm-6 spacing">
+                    <label>Links</label>
+                    <input type="text" class="form-control" ng-model="release.links">
+                </div>
+                <div class="col-sm-6 spacing">
+                    <label>Release Type</label>
+                    <select class="form-control" ng-options="release as release.type for release in EditMovie.requiredData.releaseType" ng-model="release.releaseType"></select>
+                </div>
+                <div class="col-sm-6 spacing">
+                    <label>Poster</label>
+                    <input type="text" class="form-control" ng-model="release.poster">
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="newReleaseModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">New Release</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6 spacing">
+                        <label>Country</label>
+                        <input type="text" class="form-control" ng-model="tempMovie.country">
+                    </div>
+                    <div class="col-sm-6 spacing">
+                        <label>Date</label>
+                        <input type="date" class="form-control" ng-model="tempMovie.date">
+                    </div>
+                    <div class="col-sm-6 spacing">
+                        <label>Director</label>
+                        <input type="text" class="form-control" ng-model="tempMovie.directorName">
+                    </div>
+                    <div class="col-sm-6 spacing">
+                        <label>Producer</label>
+                        <input type="text" class="form-control" ng-model="tempMovie.producerName">
+                    </div>
+                    <div class="col-sm-6 spacing">
+                        <label>Actor</label>
+                        <input type="text" class="form-control" ng-model="tempMovie.actorName">
+                    </div>
+                    <div class="col-sm-6 spacing">
+                        <label>Actress</label>
+                        <input type="text" class="form-control" ng-model="tempMovie.actressName">
+                    </div>
+                    <div class="col-sm-6 spacing">
+                        <label>Distributors</label>
+                        <input type="text" class="form-control" ng-model="tempMovie.distributors">
+                    </div>
+                    <div class="col-sm-6 spacing">
+                        <label>Age Rating</label>
+                        <select class="form-control" ng-options="rating as rating.name for rating in EditMovie.requiredData.ageRatings" ng-model="tempMovie.ageRatings"></select>
+                    </div>
+                    <div class="col-sm-6 spacing">
+                        <label>Links</label>
+                        <input type="text" class="form-control" ng-model="tempMovie.links">
+                    </div>
+                    <div class="col-sm-6 spacing">
+                        <label>Release Type</label>
+                        <select class="form-control" ng-options="release as release.type for release in EditMovie.requiredData.releaseType" ng-model="tempMovie.releaseType"></select>
+                    </div>
+                    <div class="col-sm-6 spacing">
+                        <label>Poster</label>
+                        <input type="text" class="form-control" ng-model="tempMovie.poster">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
